@@ -7,6 +7,15 @@
     color: #ff7300;
     margin-bottom: 10px;
 }
+
+.todos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .todo {
     position: relative;
     list-style: none;
@@ -19,3 +28,15 @@
     cursor: pointer;
 }
 
+.done {
+    text-decoration: line-through;
+}
+
+.delete {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
