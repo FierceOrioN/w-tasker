@@ -13,6 +13,22 @@ function App() {
     }
   }
 
+  const toggleTodo = (id) => {
+    setTodos(todos.map(todo => {
+      if (todo.id !== id) return todo;
+
+      return {
+        ...todo,
+        done: !todo.done
+      }
+    }))
+  }
+
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !==id))
+  }
+
 
   return (
     <div className='wrapper'>
@@ -25,8 +41,13 @@ function App() {
           {
             todos.map(todo => {
               return (
-              <li className="todo" key={todo.id}>
+              <li className={todo.done ? "todo done" : "todo failed"} key={todo.id} onClick={() => toggleTodo(todo.id)}>
                 {todo.text}
+                <img src="./delete.png" alt="delete" className='delete' onClick={e => {
+                  e.stopPropagation();
+                  removeTodo(todo.id);
+                }
+              }/>
               </li>
               );
             })
